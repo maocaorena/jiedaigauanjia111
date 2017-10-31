@@ -1,0 +1,62 @@
+body{
+	background: #fff;
+}
+/*aboutus*/
+
+.main.aboutus {
+	background: #f2f2f2;
+	padding-top: 20px;
+}
+
+.aboutus-detail {
+	width: 1000px;
+	margin: auto;
+	background: #fff;
+	border: 1px solid #e6e6e6;
+}
+
+.aboutus-detail>ul {
+	width: 199px;
+	float: left;
+	font-size: 1.12em;
+}
+
+.aboutus-detail>ul>li {
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	color: #333;
+	border-bottom: 1px solid #e6e6e6;
+	cursor: pointer;
+}
+
+.aboutus-detail>ul>li.cur {
+	background: #4b97ea;
+	color: #fff;
+}
+
+.aboutus-right {
+	float: right;
+	width: 800px;
+	border-left: 1px solid #e6e6e6;
+}
+
+.aboutus-right .tit {
+	height: 80px;
+	line-height: 80px;
+	padding-left: 20px;
+	border-bottom: 1px solid #e6e6e6;
+	font-size: 1.12em;
+}
+
+.detail-text {
+	padding: 20px;
+	font-size: 0.875em;
+	color: #333;
+	line-height: 28px;
+	min-height: 500px;
+}
+
+.detail-text img {
+	max-width: 100%;
+}

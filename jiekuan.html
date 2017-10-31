@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link href="./css/common.css" rel="stylesheet" type="text/css" />
+		<link href="./lib/fenye/jquery.pagination.css" rel="stylesheet" type="text/css" />
+		<link href="./css/header.css" rel="stylesheet" type="text/css" />
+		<link href="./css/bottom.css" rel="stylesheet" type="text/css" />
+		<link href="./css/jiekuan.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<div class="top">
+			<div class="d-top">
+				<a href="index.html">
+					<i class="logo">
+                        <img src="./img/p_portrait.png" />
+                    </i>
+					<div class="title">
+						<div class="t">用钱管家</div>
+						<div class="f14">yongqianguanjia.com</div>
+					</div>
+				</a>
+				<ul class="pc-tabber">
+					<li>
+						<a href="javascript:;"><span>借款攻略</span></a>
+					</li>
+					<li class="cur">
+						<a href="jiekuan.html"><span>我要借款</span></a>
+					</li>
+					<li>
+						<a href="index.html"><span>首页</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script id="searchTpl" type="text/x-handlebars-template">
+			{{#each data}} {{#ifExpress1 ../selected id}}
+			<li class="goto cur" thisId="{{id}}" thisType="{{../params.type}}">
+				<a href="javascript:;">{{value}}</a>
+			</li>
+			{{else}}
+			<li class="goto" thisId="{{id}}" thisType="{{../params.type}}">
+				<a href="javascript:;">{{value}}</a>
+			</li>
+			{{/ifExpress1}} {{/each}}
+			<li style="clear: both;"></li>
+		</script>
+		<div class="main jiekuan">
+			<div class="term">
+				<div class="term-type">
+					<div class="tit">借款额度</div>
+					<ul id="firstSearch">
+					</ul>
+					<div style="clear: both;"></div>
+				</div>
+
+				<div class="term-type">
+					<div class="tit">借款期限</div>
+					<ul id="secondSearch">
+					</ul>
+					<div style="clear: both;"></div>
+				</div>
+
+				<div class="term-type">
+					<div class="tit">职业身份</div>
+					<ul id="thirdSearch">
+					</ul>
+					<div style="clear: both;"></div>
+				</div>
+				<div class="term-type">
+					<div class="tit">是否新口子</div>
+					<ul id="fouthSearch">
+					</ul>
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+
+			<!--search-result-list-->
+			<script id="listItem" type="text/x-handlebars-template">
+				{{#each data}}
+				<li>
+					<a href="./chanpin.html?id={{id}}" target="_blank">
+						<div class="hd">
+							<img class="" src="{{picture}}" alt="{{name}}" />
+							<div class="tit ml15">
+								<span>{{name}}</span>
+								<div class="rate">
+									额度范围：<span class="red mr20 f14">{{lowest_money}}-{{highest_money}}</span> 借款期限：
+									<span class="red f14">{{loanPeriod}}</span>
+								</div>
+								<div class="rate-abs f14">
+									<span class="red f24 mr0">0.30%</span>
+									<br /> {{#ifExpress 'stage_type==1'}} 月利率 {{else}} 日利率 {{/ifExpress}}
+								</div>
+							</div>
+						</div>
+						<div class="bd">
+							<button class="list-btn fr">立即借款</button>
+							<div class="sr-tag">
+								{{#each tags1}}
+								<span>{{this}}</span> {{/each}}
+							</div>
+						</div>
+					</a>
+				</li>
+				{{/each}}
+				<li style="clear: both;"></li>
+			</script>
+			<div class="search-result">
+				<div class="sr-list fl link">
+					<ul id="listIn">
+					</ul>
+					<div class="page" id="pagination">
+					</div>
+				</div>
+				<div class="ad fr">
+					<div class="hz-jigou b-line">
+						<div class="tit"><span>合作机构</span></div>
+						<a href="/jigou/162/" target='_blank'>
+							<img src="https://def-201821.picsh.myqcloud.com/201821/0/ae904409-6e46-49c8-88fd-2e2229d307d1/original" />
+							<div class="name-text">
+								<p>91借钱</p>
+								<p class="gray f12">黑户可借</p>
+							</div>
+						</a>
+						<a href="/jigou/106/" target='_blank'>
+							<img src="https://def-201821.picsh.myqcloud.com/201821/0/59d9946a-f86d-4837-a5b3-faf2f527a14d/original" />
+							<div class="name-text">
+								<p>贷嘛</p>
+								<p class="gray f12">额度高</p>
+							</div>
+						</a>
+						<a href="/jigou/238/" target='_blank'>
+							<img src="https://def-201821.picsh.myqcloud.com/201821/0/0705aac1-c62b-4cc3-9ed7-9c9126452966/original" />
+							<div class="name-text">
+								<p>借吧易贷</p>
+								<p class="gray f12">芝麻分560以上可贷5000元</p>
+							</div>
+						</a>
+						<a href="/jigou/309/" target='_blank'>
+							<img src="https://def-201821.picsh.myqcloud.com/201821/0/b3c08537-df94-4a20-a25c-924be5d0e55f/original" />
+							<div class="name-text">
+								<p>借来花</p>
+								<p class="gray f12">无视黑白，秒批到账！</p>
+							</div>
+						</a>
+						<a href="/jigou/104/" target='_blank'>
+							<img src="https://def-201821.picsh.myqcloud.com/201821/0/723d7155-22f7-434f-a473-993bfd4782d2/original" />
+							<div class="name-text">
+								<p>丽人荟</p>
+								<p class="gray f12">女性专属</p>
+							</div>
+						</a>
+					</div>
+					<div class="counter b-line fr">
+						<div class="tit"><span>计算器</span></div>
+						<div class="c-input">
+							<input class="money" type="text" placeholder="借多少" id="suanmoney" maxlength="8" autocomplete="off" onkeyup="this.value = this.value.replace(/\D/g, '')" />
+							<span>元</span>
+						</div>
+						<div class="c-input">
+							<input class="yue" type="text" placeholder="借多久" id="suanyue" maxlength="2" autocomplete="off" onkeyup="this.value = this.value.replace(/\D/g, '')" />
+							<span>个月</span>
+						</div>
+						<div class="c-input">
+							<input class="rate" type="text" placeholder="利率" id="suanrate" maxlength="5" autocomplete="off" onkeyup="this.value = this.value.replace(/[^0-9.]/g, '')" />
+							<span>%</span>
+						</div>
+						<a href="javascript:;"><button class="submit-blue" id="JigouSuan">算一算</button></a>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!--底部-->
+		<div class="bottom">
+			<div class="fl mr50">
+				<div class="n-text">
+					<h3 class="f20 mb10">用钱管家</h3>
+					<p>
+						<a href="./about.html">关于我们</a>
+					</p>
+					<p>商务合作</p>
+				</div>
+			</div>
+			<div class="fr">
+				<div class="weixin fr ">
+					<div class="code-img"><img src="./img/code22.jpg" /></div>
+					<p class="ml0"></p>
+				</div>
+				<div class="weixin fr">
+					<div class="code-img"><img src="./img/code22.jpg" /></div>
+					<p class="ml0"></p>
+				</div>
+			</div>
+			<div class="f-top">
+				<i class="fh-top"></i>
+			</div>
+			<div class="popup">
+				<div id="popup-captcha"></div>
+			</div>
+		</div>
+		<div class="copyright">
+			Copyright©2017 厦门可可家信息技术有限公司
+			<a href="javascript:;">闽ICP备14019518号-3</a>
+			|
+			<span>
+			 	<a href="javascript:;">RSS</a>
+			 </span>
+		</div>
+		<script type="text/javascript" src="./lib/jquery.js"></script>
+		<script type="text/javascript" src="./lib/handlebars-v4.0.11.js"></script>
+		<script type="text/javascript" src="./js/handlebars.js"></script>
+		<script type="text/javascript" src="./lib/fenye/jquery.pagination.min.js"></script>
+		<script type="text/javascript" src="./js/common.js"></script>
+		<script type="text/javascript" src="./js/jiekuan.js"></script>
+	</body>
+
+</html>

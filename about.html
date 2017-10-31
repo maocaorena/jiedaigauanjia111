@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link href="./css/common.css" rel="stylesheet" type="text/css" />
+		<link href="./css/header.css" rel="stylesheet" type="text/css" />
+		<link href="./css/bottom.css" rel="stylesheet" type="text/css" />
+		<link href="./css/about.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="./lib/jquery.js"></script>
+	</head>
+
+	<body>
+		<!--头部-->
+		<div class="top">
+			<div class="d-top">
+				<a href="index.html">
+					<i class="logo">
+                        <img src="./img/p_portrait.png" />
+                    </i>
+					<div class="title">
+						<div class="t">用钱管家</div>
+						<div class="f14">yongqianguanjia.com</div>
+					</div>
+				</a>
+				<ul class="pc-tabber">
+					<li>
+						<a href="https://www.yongqianguanjia.com/zixun/"><span>借款攻略</span></a>
+					</li>
+					<li>
+						<a href="jiekuan.html"><span>我要借款</span></a>
+					</li>
+					<li>
+						<a href="index.html"><span>首页</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="main aboutus">
+			<div class="aboutus-detail">
+				<ul>
+					<li class="cur">平台简介</li>
+					<li>联系我们</li>
+				</ul>
+				<div class="aboutus-right">
+					<div class="tit">
+						关于我们
+						<span class="blue f14 ml10">ABOUT US</span>
+					</div>
+					<div class="detail-text">
+						<ul>
+							<li>
+								<p>用钱管家是新一代年轻人金融服务生活平台。结合大数据挖掘及智能匹配技术，为用户推荐门槛最低、利率最低、放款最快、催收温和、最新上线的贷款产品。<br />【平台特色】<br />· 推荐门槛最低、利率最、放款最快、催收最温柔的高性价比贷款产品，一键轻松借款；<br />· 每日推送3-5家新口子；<br />· 成功贷款免息+返利；<br /></p>
+							</li>
+							<li class="none">
+								<p>商务合作：liufeng@yongqianguanjia.com</p>
+								<p>意见反馈：pengling@jiafenqi.com<br /></p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<script>
+		</script>
+		<!--底部-->
+		<div class="bottom">
+			<div class="fl mr50">
+				<div class="n-text">
+					<h3 class="f20 mb10">用钱管家</h3>
+					<p>
+						<a href="./about.html">关于我们</a>
+					</p>
+					<p>商务合作</p>
+				</div>
+			</div>
+			<div class="fr">
+				<div class="weixin fr ">
+					<div class="code-img"><img src="./img/code22.jpg" /></div>
+					<p class="ml0"></p>
+				</div>
+				<div class="weixin fr">
+					<div class="code-img"><img src="./img/code22.jpg" /></div>
+					<p class="ml0"></p>
+				</div>
+			</div>
+			<div class="f-top">
+				<p>
+					<a href="./about.html">联系我们</a>
+				</p>
+				<i class="fh-top"></i>
+			</div>
+			<div class="popup">
+				<div id="popup-captcha"></div>
+			</div>
+		</div>
+		<div class="copyright">
+			Copyright©2017 厦门可可家信息技术有限公司
+			<a href="javascript:;">闽ICP备14019518号-3</a>
+			|
+			<span>
+			 	<a href="javascript:;">RSS</a>
+			 </span>
+		</div>
+		<script>
+			$('.aboutus-detail>ul>li').click(function() {
+				$(this).addClass('cur').siblings().removeClass('cur');
+				var count = $(this).index();
+				$(this).parents('.main').find('.detail-text li').eq(count).removeClass('none').siblings().addClass('none');
+			});
+			$(window).scroll(function() {
+				var top = $(window).scrollTop();
+				if(top > 150)
+					$('.f-top').fadeIn(100);
+				else
+					$('.f-top').fadeOut(100);
+			});
+			$('.fh-top').click(function() {
+				$(window).scrollTop(0);
+			});
+		</script>
+	</body>
+
+</html>

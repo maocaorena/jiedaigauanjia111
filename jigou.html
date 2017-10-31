@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link href="./css/common.css" rel="stylesheet" type="text/css" />
+		<link href="./css/header.css" rel="stylesheet" type="text/css" />
+		<link href="./css/bottom.css" rel="stylesheet" type="text/css" />
+		<link href="./css/jigou.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="./lib/jquery.js"></script>
+	</head>
+
+	<body>
+		<!--头部-->
+		<div class="top">
+			<div class="d-top">
+				<a href="index.html">
+					<i class="logo">
+                        <img src="./img/p_portrait.png" />
+                    </i>
+					<div class="title">
+						<div class="t">用钱管家</div>
+						<div class="f14">yongqianguanjia.com</div>
+					</div>
+				</a>
+				<ul class="pc-tabber">
+					<li>
+						<a href="javascript:;"><span>借款攻略</span></a>
+					</li>
+					<li class="cur">
+						<a href="jiekuan.html"><span>我要借款</span></a>
+					</li>
+					<li>
+						<a href="index.html"><span>首页</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="main jiekuan pt0">
+			<div class="search-result">
+				<div class="sr-list fl link">
+					<ul>
+						<li class="pb0">
+							<div class="hd">
+								<img src="https://def-201821.picsh.myqcloud.com/201821/0/5599c317-694f-4938-9f1e-9f82ff800521/original" alt='融族' />
+								<div class="tit ml15">
+									<span>融族</span>
+									<br /> 申请快，额度随意 </div>
+							</div>
+						</li>
+					</ul>
+					<div class="infomation-detail jigou_detail">
+						<div class="bd">
+							<div class="tit">机构介绍</div>
+							<p>融族一直忠于为信贷经理，信贷员，中介公司等贷款金融行业从业者大造一个资源 共享的平台<br /></p>
+							<div class="tit">机构产品</div>
+							<div class="link">
+								<ul>
+									<a href='/chanpin/238/'>
+										<li>
+											<div class="hd">
+												<img src="https://def-201821.picsh.myqcloud.com/201821/0/5599c317-694f-4938-9f1e-9f82ff800521/original">
+												<div class="name-detail">
+													<div class="tit">
+														<span>融族</span> 申请快，额度随意 </div>
+													<div class="rate ml0 mt0">日利率：<span class="red f20">0.02%</span></div>
+												</div>
+											</div>
+											<div class="bd">
+												<button class="list-btn fr">查看详情</button>
+												<div class="rate">
+													额度范围：<span class="red mr20">5000-10000</span> 借款期限：
+													<span class="red">1年以上</span>
+												</div>
+											</div>
+										</li>
+									</a>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="jigou partner">
+						<div class="hd">
+							<span class="fl">合作机构</span>
+						</div>
+						<div class="jigou-list">
+							<ul>
+								<li>
+									<a href="/jigou/48/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/f1c48228-2990-4de8-a9ed-85c443327e3b/original" /><span>一信贷</span></a>
+								</li>
+								<li>
+									<a href="/jigou/325/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/b059f2a7-8d51-4807-8865-bf3598b3fce9/original" /><span>云上闪贷</span></a>
+								</li>
+								<li>
+									<a href="/jigou/101/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/0994787e-f94d-45e0-907b-4fe7b733dc5e/original" /><span>米米贷</span></a>
+								</li>
+								<li>
+									<a href="/jigou/61/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/a9218ef4-7764-4c7b-885f-34e3e0ac7fa2/original" /><span>快来钱</span></a>
+								</li>
+								<li>
+									<a href="/jigou/216/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/0210e6df-3354-4217-96d1-19a58b85027e/original" /><span>中原银行帮你还</span></a>
+								</li>
+								<li>
+									<a href="/jigou/108/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/47f7bfe8-30a5-4ee4-b946-c290d2163d34/original" /><span>95金融</span></a>
+								</li>
+								<li>
+									<a href="/jigou/128/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/2069da60-2e62-46d3-89f7-9ed788cdb55c/original" /><span>捷现贷</span></a>
+								</li>
+								<li>
+									<a href="/jigou/23/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/e5a4f475-94d4-47fc-932f-b51da2c90be1/original" /><span>用钱宝</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="ad fr">
+					<div class="product b-line">
+						<script id="chanpinTpl" type="text/x-handlebars-template">
+							{{#each data}}
+								<li>
+									<a href="./chanpin.html?id={{id}}">
+										<div class="hd">
+											<img src="{{picture}}" alt="{{name}}" />
+											<div class="name-detail ml5">
+												<div class="tit">{{name}}</div>
+												<div class="rate">
+													{{#ifExpress 'stage_type==1'}}
+														月利率
+													{{else}}
+														日利率
+													{{/ifExpress}}
+													<span class="red f20">{{rate}}%</span></div>
+											</div>
+										</div>
+										<div class="bd">
+											<span class="fr">期限:15天内</span>
+											<span>范围:{{highest_money}}以下</span>
+										</div>
+									</a>
+								</li>
+						    {{/each}}
+						    <li style="clear: both;"></li>
+						</script>
+						<div class="tit"><span>相关产品</span></div>
+						<ul id="chanpinIn">
+							
+						</ul>
+					</div>
+					<div class="search b-line">
+						<div class="tit"><span>贷款产品搜索</span></div>
+						<div class="search-block">
+							<div class="cur" id='JigouSearch_type1'>借款金额</div>
+							<ul>
+								<li data='0'>不限</li>
+								<li data='1'>500-1000</li>
+								<li data='2'>1000-3000</li>
+								<li data='3'>3000-5000</li>
+								<li data='4'>5000-10000</li>
+								<li data='5'>10000以上</li>
+							</ul>
+						</div>
+						<div class="search-block">
+							<div class="cur" id='JigouSearch_type2'>借款期限</div>
+							<ul>
+								<li data='0'>不限</li>
+								<li data='1'>15天内</li>
+								<li data='2'>1个月内</li>
+								<li data='3'>1-3个月</li>
+								<li data='4'>3-6个月</li>
+								<li data='5'>6-12个月</li>
+								<li data='6'>1年以上</li>
+							</ul>
+						</div>
+						<div class="search-block">
+							<div class="cur" id='JigouSearch_type3'>职业身份</div>
+							<ul>
+								<li data='0'>不限</li>
+								<li data='1'>上班族</li>
+								<li data='2'>个体户</li>
+								<li data='3'>学生</li>
+							</ul>
+						</div>
+						<button class="submit-blue" id='JigouSearch'>搜一搜</button>
+					</div>
+ 					</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!--底部-->
+		<div class="bottom">
+			<div class="fl mr50">
+				<div class="n-text">
+					<h3 class="f20 mb10">用钱管家</h3>
+					<p>
+						<a href="./about.html">关于我们</a>
+					</p>
+					<p>商务合作</p>
+				</div>
+			</div>
+			<div class="fr">
+				<div class="weixin fr ">
+					<div class="code-img"><img src="./img/code22.jpg" /></div>
+					<p class="ml0"></p>
+				</div>
+				<div class="weixin fr">
+					<div class="code-img"><img src="./img/code22.jpg" /></div>
+					<p class="ml0"></p>
+				</div>
+			</div>
+			<div class="f-top">
+				<i class="fh-top"></i>
+			</div>
+			<div class="popup">
+				<div id="popup-captcha"></div>
+			</div>
+		</div>
+		<div class="copyright">
+			Copyright©2017 厦门可可家信息技术有限公司
+			<a href="javascript:;">闽ICP备14019518号-3</a>
+			|
+			<span>
+			 	<a href="javascript:;">RSS</a>
+			 </span>
+		</div>
+		<script type="text/javascript" src="./lib/jquery.js"></script>
+		<script type="text/javascript" src="./lib/handlebars-v4.0.11.js"></script>
+		<script type="text/javascript" src="./js/handlebars.js"></script>
+		<script type="text/javascript" src="./js/common.js"></script>
+		<script type="text/javascript" src="./js/jigou.js"></script>
+	</body>
+
+</html>
