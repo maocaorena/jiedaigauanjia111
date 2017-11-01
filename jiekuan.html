@@ -88,11 +88,13 @@
 							<div class="tit ml15">
 								<span>{{name}}</span>
 								<div class="rate">
-									额度范围：<span class="red mr20 f14">{{lowest_money}}-{{highest_money}}</span> 借款期限：
+									额度范围：
+									<span class="red mr20 f14">{{lowest_money}}-{{highest_money}}</span> 
+									借款期限：
 									<span class="red f14">{{loanPeriod}}</span>
 								</div>
 								<div class="rate-abs f14">
-									<span class="red f24 mr0">0.30%</span>
+									<span class="red f24 mr0">{{rate}}%</span>
 									<br /> {{#ifExpress 'stage_type==1'}} 月利率 {{else}} 日利率 {{/ifExpress}}
 								</div>
 							</div>

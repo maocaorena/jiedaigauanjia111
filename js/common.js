@@ -1,6 +1,6 @@
 var config = {
-//	baseUrl: "http://localhost:8000/proxy/loan.koudaijiaban.com/mobile/",//gulp代理接口地址
-	baseUrl: "http://loan.koudaijiaban.com/mobile/",//线上接口地址
+	baseUrl: "http://localhost:8000/proxy/loan.koudaijiaban.com/mobile/",//gulp代理接口地址
+//	baseUrl: "http://loan.koudaijiaban.com/mobile/",//线上接口地址
 	contentType: "application/json",
 	dataType: "json",
 	timeout: 1800000,

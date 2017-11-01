@@ -70,7 +70,33 @@
 					</ul>
 				</div>
 			</div>
-
+			<script id="listItem" type="text/x-handlebars-template">
+				{{#each data}}
+				<div class="ne-right">
+					<div class="right-item">
+						<a href="./chanpin.html?id={{id}}" target='_blank'>
+							<div class="hd">
+								<img class="" src="{{picture}}" alt="{{name}}" />
+								<div class="name-detail">
+									<div class="tit">{{name}}</div>
+									<div class="rate">
+										{{#ifExpress 'stage_type==1'}} 月利率 {{else}} 日利率 {{/ifExpress}}：
+										<span class="red f20">{{rate}}%</span>
+									</div>
+								</div>
+								<div class="tag t-red"></div>
+							</div>
+							<div class="bd">
+								<div class="rate">
+									额度范围：<span class="red mr20">{{lowest_money}}-{{highest_money}}</span> 
+									借款期限：<span class="red">{{loanPeriod}}</span>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				{{/each}}
+			</script>
 			<!--新口子，放款快，职业-->
 			<div class="link">
 				<div class="link-enter">
@@ -83,87 +109,8 @@
 							<a href="jiekuan.html">更多 ></a>
 						</p>
 					</div>
-					<div class="link-right">
-						<div class="ne-right">
-							<div class="right-item">
-								<a href="javascript:;" target='_blank'>
-									<div class="hd">
-										<img src="./img/original.png" />
-										<div class="name-detail">
-											<div class="tit">马上贷钱</div>
-											<div class="rate">日利率：<span class="red f20">0.05%</span></div>
-										</div>
-										<div class="tag t-red"></div>
-									</div>
-									<div class="bd">
-										<div class="rate">
-											额度范围：<span class="red mr20">1000-3000</span> 借款期限：
-											<span class="red">15天内</span>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="ne-right">
-							<div class="right-item">
-								<a href="javascript:;" target='_blank'>
-									<div class="hd">
-										<img src="./img/original.png" />
-										<div class="name-detail">
-											<div class="tit">马上贷钱</div>
-											<div class="rate">日利率：<span class="red f20">0.05%</span></div>
-										</div>
-										<div class="tag t-red"></div>
-									</div>
-									<div class="bd">
-										<div class="rate">
-											额度范围：<span class="red mr20">1000-3000</span> 借款期限：
-											<span class="red">15天内</span>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="ne-right">
-							<div class="right-item">
-								<a href="javascript:;" target='_blank'>
-									<div class="hd">
-										<img src="./img/original.png" />
-										<div class="name-detail">
-											<div class="tit">马上贷钱</div>
-											<div class="rate">日利率：<span class="red f20">0.05%</span></div>
-										</div>
-										<div class="tag t-red"></div>
-									</div>
-									<div class="bd">
-										<div class="rate">
-											额度范围：<span class="red mr20">1000-3000</span> 借款期限：
-											<span class="red">15天内</span>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="ne-right">
-							<div class="right-item">
-								<a href="javascript:;" target='_blank'>
-									<div class="hd">
-										<img src="./img/original.png" />
-										<div class="name-detail">
-											<div class="tit">马上贷钱</div>
-											<div class="rate">日利率：<span class="red f20">0.05%</span></div>
-										</div>
-										<div class="tag t-red"></div>
-									</div>
-									<div class="bd">
-										<div class="rate">
-											额度范围：<span class="red mr20">1000-3000</span> 借款期限：
-											<span class="red">15天内</span>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
+					<div class="link-right" id="first">
+						
 					</div>
 				</div>
 				<div class="link-enter">
@@ -176,87 +123,8 @@
 							<a href="jiekuan.html">更多 ></a>
 						</p>
 					</div>
-					<div class="link-right">
-						<div class="ne-right">
-							<div class="right-item">
-								<a href="javascript:;" target='_blank'>
-									<div class="hd">
-										<img src="./img/original.png" />
-										<div class="name-detail">
-											<div class="tit">马上贷钱</div>
-											<div class="rate">日利率：<span class="red f20">0.05%</span></div>
-										</div>
-										<div class="tag t-red"></div>
-									</div>
-									<div class="bd">
-										<div class="rate">
-											额度范围：<span class="red mr20">1000-3000</span> 借款期限：
-											<span class="red">15天内</span>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="ne-right">
-							<div class="right-item">
-								<a href="javascript:;" target='_blank'>
-									<div class="hd">
-										<img src="./img/original.png" />
-										<div class="name-detail">
-											<div class="tit">马上贷钱</div>
-											<div class="rate">日利率：<span class="red f20">0.05%</span></div>
-										</div>
-										<div class="tag t-red"></div>
-									</div>
-									<div class="bd">
-										<div class="rate">
-											额度范围：<span class="red mr20">1000-3000</span> 借款期限：
-											<span class="red">15天内</span>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="ne-right">
-							<div class="right-item">
-								<a href="javascript:;" target='_blank'>
-									<div class="hd">
-										<img src="./img/original.png" />
-										<div class="name-detail">
-											<div class="tit">马上贷钱</div>
-											<div class="rate">日利率：<span class="red f20">0.05%</span></div>
-										</div>
-										<div class="tag t-red"></div>
-									</div>
-									<div class="bd">
-										<div class="rate">
-											额度范围：<span class="red mr20">1000-3000</span> 借款期限：
-											<span class="red">15天内</span>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="ne-right">
-							<div class="right-item">
-								<a href="javascript:;" target='_blank'>
-									<div class="hd">
-										<img src="./img/original.png" />
-										<div class="name-detail">
-											<div class="tit">马上贷钱</div>
-											<div class="rate">日利率：<span class="red f20">0.05%</span></div>
-										</div>
-										<div class="tag t-red"></div>
-									</div>
-									<div class="bd">
-										<div class="rate">
-											额度范围：<span class="red mr20">1000-3000</span> 借款期限：
-											<span class="red">15天内</span>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
+					<div class="link-right" id="second">
+						
 					</div>
 				</div>
 				<div class="link-enter">
@@ -269,87 +137,8 @@
 							<a href="jiekuan.html">更多 ></a>
 						</p>
 					</div>
-					<div class="link-right">
-						<div class="ne-right">
-							<div class="right-item">
-								<a href="javascript:;" target='_blank'>
-									<div class="hd">
-										<img src="./img/original.png" />
-										<div class="name-detail">
-											<div class="tit">马上贷钱</div>
-											<div class="rate">日利率：<span class="red f20">0.05%</span></div>
-										</div>
-										<div class="tag t-red"></div>
-									</div>
-									<div class="bd">
-										<div class="rate">
-											额度范围：<span class="red mr20">1000-3000</span> 借款期限：
-											<span class="red">15天内</span>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="ne-right">
-							<div class="right-item">
-								<a href="javascript:;" target='_blank'>
-									<div class="hd">
-										<img src="./img/original.png" />
-										<div class="name-detail">
-											<div class="tit">马上贷钱</div>
-											<div class="rate">日利率：<span class="red f20">0.05%</span></div>
-										</div>
-										<div class="tag t-red"></div>
-									</div>
-									<div class="bd">
-										<div class="rate">
-											额度范围：<span class="red mr20">1000-3000</span> 借款期限：
-											<span class="red">15天内</span>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="ne-right">
-							<div class="right-item">
-								<a href="javascript:;" target='_blank'>
-									<div class="hd">
-										<img src="./img/original.png" />
-										<div class="name-detail">
-											<div class="tit">马上贷钱</div>
-											<div class="rate">日利率：<span class="red f20">0.05%</span></div>
-										</div>
-										<div class="tag t-red"></div>
-									</div>
-									<div class="bd">
-										<div class="rate">
-											额度范围：<span class="red mr20">1000-3000</span> 借款期限：
-											<span class="red">15天内</span>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="ne-right">
-							<div class="right-item">
-								<a href="javascript:;" target='_blank'>
-									<div class="hd">
-										<img src="./img/original.png" />
-										<div class="name-detail">
-											<div class="tit">马上贷钱</div>
-											<div class="rate">日利率：<span class="red f20">0.05%</span></div>
-										</div>
-										<div class="tag t-red"></div>
-									</div>
-									<div class="bd">
-										<div class="rate">
-											额度范围：<span class="red mr20">1000-3000</span> 借款期限：
-											<span class="red">15天内</span>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
+					<div class="link-right" id="third">
+						
 					</div>
 				</div>
 			</div>
@@ -362,8 +151,6 @@
 							<td><span>企业贷</span></td>
 							<td><span>购车贷</span></td>
 							<td><span>购房贷</span></td>
-							<td><span>抵押贷</span></td>
-							<td><span>个人贷</span></td>
 						</tr>
 					</table>
 					<ul class="news-list">
@@ -627,6 +414,8 @@
 			 </span>
 			</div>
 			<script type="text/javascript" src="./lib/jquery.js"></script>
+			<script type="text/javascript" src="./lib/handlebars-v4.0.11.js"></script>
+			<script type="text/javascript" src="./js/handlebars.js"></script>
 			<script type="text/javascript" src="./lib/swiper/swiper.min.js"></script>
 			<script type="text/javascript" src="./js/common.js"></script>
 			<script type="text/javascript" src="./js/index.js"></script>
