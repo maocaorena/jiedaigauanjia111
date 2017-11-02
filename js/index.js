@@ -1,8 +1,9 @@
 $(function() {
 	$('.nc-tab').on('click','td',function() {
+		console.log($(this).attr('data'))
 		$(this).addClass('cur').siblings().removeClass('cur');
-		var num = $(this).index();
-		$('.news-list li').eq(num).removeClass('none').siblings().addClass('none');
+		//资讯选项卡
+		barGet($(this).attr('data'))
 	});
 	$('#JigouSuan').on('click', "", function() {
 		var money = $('#suanmoney').val();
@@ -70,7 +71,30 @@ $(function() {
 		html: '',
 		inHtml: $('#third'),
 	})
-	function chanpinIn(obj){
+	//资讯选项卡
+	chanpinIn({
+		url: 'loan/getLoanConditionList',
+		params: {
+			type: '5',
+		},
+		tpl: $("#topBarItem").html(),
+		data: '',
+		template: '',
+		html: '',
+		inHtml: $('#topBar'),
+	},1)
+	//底部机构列表
+	chanpinIn({
+		url: 'institution/getAllInstitutionList',
+		params: {
+		},
+		tpl: $("#jigouItem").html(),
+		data: '',
+		template: '',
+		html: '',
+		inHtml: $('#jigouMain'),
+	})
+	function chanpinIn(obj,type){
 		util.getN({
 			url: obj.url,
 			params: obj.params,
@@ -81,8 +105,25 @@ $(function() {
 					obj.template = Handlebars.compile(obj.tpl);
 					obj.html = obj.template(obj);
 					obj.inHtml.html(obj.html);
+					if(type==1){
+						barGet(res.data[0].id);
+					}
 				}
 			}
 		});
 	};
+	//资讯列表
+	function barGet(type){
+		chanpinIn({
+			url: 'article/getRecentArticleList',
+			params: {
+				type: type,
+			},
+			tpl: $("#barMainItem").html(),
+			data: '',
+			template: '',
+			html: '',
+			inHtml: $('#barMain'),
+		})
+	}
 })

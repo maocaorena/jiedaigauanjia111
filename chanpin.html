@@ -46,26 +46,19 @@
 								<span>{{name}}</span> {{description}} </div>
 							<div class="rate">
 								额度范围：
-								<span class="red mr20">{{lowest_money}}-{{highest_money}}</span> 
-								借款期限：
+								<span class="red mr20">{{lowest_money}}-{{highest_money}}</span> 借款期限：
 								<span class="red">{{lowest_period}} - {{highest_period}}</span>
 							</div>
 						</div>
 						<div class="rate-abs f14">
-							<span class="red f24 mb10">{{rate}}%</span><br />
-							{{#ifExpress 'stage_type==1'}}
-								月利率
-							{{else}}
-								日利率
-							{{/ifExpress}}
+							<span class="red f24 mb10">{{rate}}%</span><br /> {{#ifExpress 'stage_type==1'}} 月利率 {{else}} 日利率 {{/ifExpress}}
 						</div>
 					</div>
 					<div class="bd">
 						<button class="list-btn fr showpro">立即借款</button>
 						<div class="sr-tag">
 							{{#each tags1}}
-								<span>{{this}}</span> 
-							{{/each}}
+							<span>{{this}}</span> {{/each}}
 						</div>
 					</div>
 				</li>
@@ -111,72 +104,45 @@
 					<div class="product b-line">
 						<script id="chanpinTpl" type="text/x-handlebars-template">
 							{{#each data}}
-								<li>
-									<a href="./chanpin.html?id={{id}}">
-										<div class="hd">
-											<img src="{{picture}}" alt="{{name}}" />
-											<div class="name-detail ml5">
-												<div class="tit">{{name}}</div>
-												<div class="rate">
-													{{#ifExpress 'stage_type==1'}}
-														月利率
-													{{else}}
-														日利率
-													{{/ifExpress}}
-													<span class="red f20">{{rate}}%</span></div>
-											</div>
+							<li>
+								<a href="./chanpin.html?id={{id}}">
+									<div class="hd">
+										<img src="{{picture}}" alt="{{name}}" />
+										<div class="name-detail ml5">
+											<div class="tit">{{name}}</div>
+											<div class="rate">
+												{{#ifExpress 'stage_type==1'}} 月利率 {{else}} 日利率 {{/ifExpress}}
+												<span class="red f20">{{rate}}%</span></div>
 										</div>
-										<div class="bd">
-											<span class="fr">期限:15天内</span>
-											<span>范围:{{highest_money}}以下</span>
-										</div>
-									</a>
-								</li>
-						    {{/each}}
-						    <li style="clear: both;"></li>
+									</div>
+									<div class="bd">
+										<span class="fr">期限:15天内</span>
+										<span>范围:{{highest_money}}以下</span>
+									</div>
+								</a>
+							</li>
+							{{/each}}
+							<li style="clear: both;"></li>
 						</script>
 						<div class="tit"><span>相关产品</span></div>
 						<ul id="chanpinIn">
-							
+
 						</ul>
 					</div>
-					<div class="hz-jigou b-line">
+					<script id="jigouItem" type="text/x-handlebars-template">
 						<div class="tit"><span>合作机构</span></div>
-						<a href="/jigou/188/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/249b614f-0665-4c39-86f3-d3e1412765d0/original" />
-							<div class="name-text">
-								<p>91短贷</p>
-								<p class="gray f12">最快3分钟放款</p>
-							</div>
-						</a>
-						<a href="/jigou/6/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/aefaf732-1dd5-4e9c-b65a-625a6abbfd70/original" />
-							<div class="name-text">
-								<p>及贷</p>
-								<p class="gray f12">近期门槛大幅度降低！</p>
-							</div>
-						</a>
-						<a href="/jigou/176/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/751345da-5ba7-4add-8d8d-66ce796ac583/original" />
-							<div class="name-text">
-								<p>要钱花</p>
-								<p class="gray f12">最快5分钟放款</p>
-							</div>
-						</a>
-						<a href="/jigou/198/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/4a43ffbe-0d65-4679-a4a3-e9e000917841/original" />
-							<div class="name-text">
-								<p>卡乐贷</p>
-								<p class="gray f12">今日限额1000名， 黑户可借！</p>
-							</div>
-						</a>
-						<a href="/jigou/172/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/61d63220-1a48-4acb-befe-8ac44f50c207/original" />
-							<div class="name-text">
-								<p>贝壳信用</p>
-								<p class="gray f12">精简操作，极速放款</p>
-							</div>
-						</a>
+						{{#each data}}
+							<a href="./jigou.html?id={{id}}" target='_blank'>
+								<img src="{{picture}}" />
+								<div class="name-text">
+									<p>{{name}}</p>
+									<p class="gray f12">最快3分钟放款</p>
+								</div>
+							</a>
+						{{/each}}
+					</script>
+					<div class="hz-jigou b-line" id="jigouMain">
+						
 					</div>
 				</div>
 			</div>

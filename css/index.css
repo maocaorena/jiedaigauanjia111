@@ -313,6 +313,9 @@ body {
     margin-top: 22px;
     padding-right: 100px;
 }
+.nc-news.no-img {
+    padding-right: 0;
+}
 .nc-news img{
     float: right;
     margin-right: -100px;

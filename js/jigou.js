@@ -42,7 +42,19 @@ $(function() {
 		window.location.href = './jiekuan.html'
 	});
 	
-	//相关产品
+	//机构详情
+	chanpinIn({
+		url: 'loan/getLoanDetailsById',
+		params: {
+			id: util.getSearch().id
+		},
+		tpl: $("#detailItem").html(),
+		data: '',
+		template: '',
+		html: '',
+		inHtml: $('#detailMain'),
+	});
+	//右侧相关产品
 	chanpinIn({
 		url: 'loan/getRecommendLoanList',
 		params: {
@@ -52,14 +64,27 @@ $(function() {
 		template: '',
 		html: '',
 		inHtml: $('#chanpinIn'),
-	})
-	function chanpinIn(obj){
+	},1);
+	//底部机构列表
+	chanpinIn({
+		url: 'institution/getAllInstitutionList',
+		params: {
+		},
+		tpl: $("#jigouItem").html(),
+		data: '',
+		template: '',
+		html: '',
+		inHtml: $('#jigouMain'),
+	},1);
+	function chanpinIn(obj,type){
 		util.getN({
 			url: obj.url,
 			params: obj.params,
 			success: obj.callb || function(res){
 				if(res.flag){
-					obj.data = res.data.splice(0,4);
+					if(type==1){
+						obj.data = res.data.splice(0,4);
+					}
 					obj.template = Handlebars.compile(obj.tpl);
 					obj.html = obj.template(obj);
 					obj.inHtml.html(obj.html);

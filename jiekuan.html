@@ -119,43 +119,20 @@
 					</div>
 				</div>
 				<div class="ad fr">
-					<div class="hz-jigou b-line">
+					<script id="jigouItem" type="text/x-handlebars-template">
 						<div class="tit"><span>合作机构</span></div>
-						<a href="/jigou/162/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/ae904409-6e46-49c8-88fd-2e2229d307d1/original" />
-							<div class="name-text">
-								<p>91借钱</p>
-								<p class="gray f12">黑户可借</p>
-							</div>
-						</a>
-						<a href="/jigou/106/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/59d9946a-f86d-4837-a5b3-faf2f527a14d/original" />
-							<div class="name-text">
-								<p>贷嘛</p>
-								<p class="gray f12">额度高</p>
-							</div>
-						</a>
-						<a href="/jigou/238/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/0705aac1-c62b-4cc3-9ed7-9c9126452966/original" />
-							<div class="name-text">
-								<p>借吧易贷</p>
-								<p class="gray f12">芝麻分560以上可贷5000元</p>
-							</div>
-						</a>
-						<a href="/jigou/309/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/b3c08537-df94-4a20-a25c-924be5d0e55f/original" />
-							<div class="name-text">
-								<p>借来花</p>
-								<p class="gray f12">无视黑白，秒批到账！</p>
-							</div>
-						</a>
-						<a href="/jigou/104/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/723d7155-22f7-434f-a473-993bfd4782d2/original" />
-							<div class="name-text">
-								<p>丽人荟</p>
-								<p class="gray f12">女性专属</p>
-							</div>
-						</a>
+						{{#each data}}
+							<a href="./jigou.html?id={{id}}" target='_blank'>
+								<img src="{{picture}}" />
+								<div class="name-text">
+									<p>{{name}}</p>
+									<p class="gray f12">最快3分钟放款</p>
+								</div>
+							</a>
+						{{/each}}
+					</script>
+					<div class="hz-jigou b-line" id="jigouMain">
+						
 					</div>
 					<div class="counter b-line fr">
 						<div class="tit"><span>计算器</span></div>

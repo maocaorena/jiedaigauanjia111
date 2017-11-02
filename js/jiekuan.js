@@ -227,7 +227,7 @@ $(function() {
 				break;
 		};
 		getList(1);
-	})
+	});
 	function getList(one){
 		listIn({
 			url: 'loan/getAllLoanList',
@@ -260,6 +260,32 @@ $(function() {
 					obj.html = obj.template(obj);
 					obj.inHtml.html(obj.html);
 					$("#pagination").pagination("setPage", res.paginator.page, res.paginator.pages);
+				}
+			}
+		});
+	};
+	//合作机构
+	chanpinIn({
+		url: 'institution/getAllInstitutionList',
+		params: {
+		},
+		tpl: $("#jigouItem").html(),
+		data: '',
+		template: '',
+		html: '',
+		inHtml: $('#jigouMain'),
+	});
+	function chanpinIn(obj){
+		util.getN({
+			url: obj.url,
+			params: obj.params,
+			success: obj.callb || function(res){
+				if(res.flag){
+					obj.data = res.data.splice(0,4);
+					obj.template = Handlebars.compile(obj.tpl);
+					obj.html = obj.template(obj);
+					obj.inHtml.html(obj.html);
+					console.log(obj.data)
 				}
 			}
 		});

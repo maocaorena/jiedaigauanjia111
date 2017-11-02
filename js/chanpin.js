@@ -71,7 +71,18 @@ $(function() {
 		template: '',
 		html: '',
 		inHtml: $('#chanpinIn'),
-	})
+	});
+	//合作机构
+	chanpinIn({
+		url: 'institution/getAllInstitutionList',
+		params: {
+		},
+		tpl: $("#jigouItem").html(),
+		data: '',
+		template: '',
+		html: '',
+		inHtml: $('#jigouMain'),
+	});
 	function chanpinIn(obj){
 		util.getN({
 			url: obj.url,

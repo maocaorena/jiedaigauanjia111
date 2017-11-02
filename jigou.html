@@ -3,6 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
+		<title>来钱神器</title>
 		<link href="./css/common.css" rel="stylesheet" type="text/css" />
 		<link href="./css/header.css" rel="stylesheet" type="text/css" />
 		<link href="./css/bottom.css" rel="stylesheet" type="text/css" />
@@ -38,13 +39,13 @@
 		</div>
 		<div class="main jiekuan pt0">
 			<div class="search-result">
-				<div class="sr-list fl link">
+				<script id="detailItem" type="text/x-handlebars-template">
 					<ul>
 						<li class="pb0">
 							<div class="hd">
-								<img src="https://def-201821.picsh.myqcloud.com/201821/0/5599c317-694f-4938-9f1e-9f82ff800521/original" alt='融族' />
+								<img src="{{picture}}" alt='{{name}}' />
 								<div class="tit ml15">
-									<span>融族</span>
+									<span>{{name}}</span>
 									<br /> 申请快，额度随意 </div>
 							</div>
 						</li>
@@ -56,6 +57,7 @@
 							<div class="tit">机构产品</div>
 							<div class="link">
 								<ul>
+									{{#each data}}
 									<a href='/chanpin/238/'>
 										<li>
 											<div class="hd">
@@ -75,40 +77,30 @@
 											</div>
 										</li>
 									</a>
+									{{/each}}
 								</ul>
 							</div>
 						</div>
 					</div>
+				</script>
+				<div class="sr-list fl link">
+					<div id="detailMain">
+
+					</div>
+
 					<div class="jigou partner">
 						<div class="hd">
 							<span class="fl">合作机构</span>
 						</div>
+						<script id="jigouItem" type="text/x-handlebars-template">
+							{{#each data}}
+							<li>
+								<a href="./jigou.html?id={{id}}" target='_blank'><img src="{{picture}}" /><span>{{name}}</span></a>
+							</li>
+							{{/each}}
+						</script>
 						<div class="jigou-list">
-							<ul>
-								<li>
-									<a href="/jigou/48/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/f1c48228-2990-4de8-a9ed-85c443327e3b/original" /><span>一信贷</span></a>
-								</li>
-								<li>
-									<a href="/jigou/325/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/b059f2a7-8d51-4807-8865-bf3598b3fce9/original" /><span>云上闪贷</span></a>
-								</li>
-								<li>
-									<a href="/jigou/101/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/0994787e-f94d-45e0-907b-4fe7b733dc5e/original" /><span>米米贷</span></a>
-								</li>
-								<li>
-									<a href="/jigou/61/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/a9218ef4-7764-4c7b-885f-34e3e0ac7fa2/original" /><span>快来钱</span></a>
-								</li>
-								<li>
-									<a href="/jigou/216/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/0210e6df-3354-4217-96d1-19a58b85027e/original" /><span>中原银行帮你还</span></a>
-								</li>
-								<li>
-									<a href="/jigou/108/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/47f7bfe8-30a5-4ee4-b946-c290d2163d34/original" /><span>95金融</span></a>
-								</li>
-								<li>
-									<a href="/jigou/128/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/2069da60-2e62-46d3-89f7-9ed788cdb55c/original" /><span>捷现贷</span></a>
-								</li>
-								<li>
-									<a href="/jigou/23/" target="_blank"><img src="https://def-201821.picsh.myqcloud.com/201821/0/e5a4f475-94d4-47fc-932f-b51da2c90be1/original" /><span>用钱宝</span></a>
-								</li>
+							<ul id="jigouMain">
 							</ul>
 						</div>
 					</div>
@@ -117,33 +109,29 @@
 					<div class="product b-line">
 						<script id="chanpinTpl" type="text/x-handlebars-template">
 							{{#each data}}
-								<li>
-									<a href="./chanpin.html?id={{id}}">
-										<div class="hd">
-											<img src="{{picture}}" alt="{{name}}" />
-											<div class="name-detail ml5">
-												<div class="tit">{{name}}</div>
-												<div class="rate">
-													{{#ifExpress 'stage_type==1'}}
-														月利率
-													{{else}}
-														日利率
-													{{/ifExpress}}
-													<span class="red f20">{{rate}}%</span></div>
-											</div>
+							<li>
+								<a href="./chanpin.html?id={{id}}">
+									<div class="hd">
+										<img src="{{picture}}" alt="{{name}}" />
+										<div class="name-detail ml5">
+											<div class="tit">{{name}}</div>
+											<div class="rate">
+												{{#ifExpress 'stage_type==1'}} 月利率 {{else}} 日利率 {{/ifExpress}}
+												<span class="red f20">{{rate}}%</span></div>
 										</div>
-										<div class="bd">
-											<span class="fr">期限:15天内</span>
-											<span>范围:{{highest_money}}以下</span>
-										</div>
-									</a>
-								</li>
-						    {{/each}}
-						    <li style="clear: both;"></li>
+									</div>
+									<div class="bd">
+										<span class="fr">期限:15天内</span>
+										<span>范围:{{highest_money}}以下</span>
+									</div>
+								</a>
+							</li>
+							{{/each}}
+							<li style="clear: both;"></li>
 						</script>
 						<div class="tit"><span>相关产品</span></div>
 						<ul id="chanpinIn">
-							
+
 						</ul>
 					</div>
 					<div class="search b-line">
@@ -182,7 +170,7 @@
 						</div>
 						<button class="submit-blue" id='JigouSearch'>搜一搜</button>
 					</div>
- 					</div>
+				</div>
 			</div>
 			<div class="clear"></div>
 		</div>
