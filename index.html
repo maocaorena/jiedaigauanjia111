@@ -18,13 +18,13 @@
                         <img src="./img/p_portrait.png" />
                     </i>
 						<div class="title">
-							<div class="t">用钱管家</div>
-							<div class="f14">yongqianguanjia.com</div>
+							<div class="t">来钱神器</div>
+							<div class="f14">laiqianshenqi.com</div>
 						</div>
 					</a>
 					<ul class="pc-tabber">
 						<li>
-							<a href="javascript:;"><span>借款攻略</span></a>
+							<a href="gongluehome.html"><span>借款攻略</span></a>
 						</li>
 						<li>
 							<a href="jiekuan.html"><span>我要借款</span></a>
@@ -154,8 +154,8 @@
 			</script>
 			<script id="barMainItem" type="text/x-handlebars-template">
 				{{#each data}}
-					{{#ifExpress1 @index 0}}
-						<a href="javascript:;" target='_blank'>
+					{{#ifExpress title_photo}}
+						<a href="zixun.html?id={{id}}" target='_blank'>
 							<div class="nc-news">
 		                        <img class="fr" src="{{title_photo}}" alt="{{title}}">
 		                        <div class="tit">{{title}}</div>
@@ -163,13 +163,13 @@
 		                    </div>
 		                </a>
 					{{else}}
-						<a href="javascript:;" target='_blank'>
+						<a href="zixun.html?id={{id}}" target='_blank'>
 							<div class="nc-news no-img">
 								<div class="tit">{{title}}</div>
 								<div class="detail">{{content}}</div>
 							</div>
 						</a>
-                    {{/ifExpress1}}
+                    {{/ifExpress}}
 				{{/each}}
 			</script>
 			<div class="news">

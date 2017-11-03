@@ -15,7 +15,7 @@ var util = {
 				toGo += ('?' + i + '=' + obj[i])
 			}
 		};
-		window.location.href = toGo;
+		window.open(toGo);
 	},
 	getSearch: function() {
 		var args = {};

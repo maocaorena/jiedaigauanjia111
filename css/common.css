@@ -287,3 +287,6 @@ table{border-collapse: collapse;}
     color: #fff;
     border-radius: 10px;
 }
+html{
+	overflow-y: scroll;
+}

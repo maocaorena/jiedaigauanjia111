@@ -1,6 +1,5 @@
 $(function() {
 	$('.nc-tab').on('click','td',function() {
-		console.log($(this).attr('data'))
 		$(this).addClass('cur').siblings().removeClass('cur');
 		//资讯选项卡
 		barGet($(this).attr('data'))
@@ -100,7 +99,6 @@ $(function() {
 			params: obj.params,
 			success: obj.callb || function(res){
 				if(res.flag){
-					console.log(res)
 					obj.data = res.data;
 					obj.template = Handlebars.compile(obj.tpl);
 					obj.html = obj.template(obj);

@@ -19,13 +19,13 @@
                         <img src="./img/p_portrait.png" />
                     </i>
 					<div class="title">
-						<div class="t">用钱管家</div>
-						<div class="f14">yongqianguanjia.com</div>
+						<div class="t">来钱神器</div>
+						<div class="f14">laiqianshenqi.com</div>
 					</div>
 				</a>
 				<ul class="pc-tabber">
 					<li>
-						<a href="javascript:;"><span>借款攻略</span></a>
+						<a href="gongluehome.html"><span>借款攻略</span></a>
 					</li>
 					<li>
 						<a href="jiekuan.html"><span>我要借款</span></a>
@@ -44,36 +44,32 @@
 					</div>
 					<div class="view view-main">
 						<div class="pages navbar-through toolbar-through">
-							<!-- Page, data-page contains page name-->
 							<div data-page="calculator" class="page">
 								<div class="page-content calculator">
 									<div class="total-interest">
 										<p>总息费</p>
 										<h4 id="zlx">0</h4> <span>元</span></div>
 									<div class="calculate-interest">
-										<!--<p class="notice">* 计算结果仅供参考</p>-->
 										<ul class="input-info">
 											<li>
 												<p>借款金额</p>
-												<input type="tel" value="5000" maxlength="8" oninput="if(value.length>8)value=value.slice(0,8)" onkeyup="Js(3)" id="x1" /><em>元</em>
+												<input class="input1" type="tel" value="" maxlength="8" oninput="if(value.length>8)value=value.slice(0,8)" onkeyup="Js(3)" id="x1" /><em>元</em>
 											</li>
 											<li>
 												<p>借款期限</p>
-												<input type="tel" value="3" placeholder="" maxlength="2" onkeyup="Js(3)" id="x2" onkeyup="this.value = this.value.replace(/\D/g, '')" /><em>月</em>
+												<input class="input2" type="tel" value="" placeholder="" maxlength="2" onkeyup="Js(3)" id="x2" onkeyup="this.value = this.value.replace(/\D/g, '')" /><em>月</em>
 											</li>
 											<li>
 												<p>月利率</p>
-												<input type="tel" value="1.5" onkeyup="Js(3)" id="x3" /><em>%</em>
+												<input class="input3" type="tel" value="" onkeyup="Js(3)" id="x3" /><em>%</em>
 											</li>
 										</ul>
 									</div>
 									<div class="calculator-items">
-										<!-- Buttons row as tabs controller -->
 										<div class="buttons-row">
 											<a class="tab-link active button" id="bj" onclick="Js(1);">等额本金</a>
 											<a class="tab-link button" id="bx" onclick="Js(2);">等额本息</a>
 										</div>
-										<!-- Tabs, tabs wrapper -->
 										<div class="tabs">
 											<ul id="tab1" class="tab active">
 												<li class="title">
@@ -82,14 +78,6 @@
 														<li class="fl">应还本金</li>
 														<li class="fl">应还利息</li>
 														<li class="fl">期数</li>
-													</ul>
-												</li>
-												<li id="ssss">
-													<ul>
-														<li class="fl">893.33</li>
-														<li class="fl">833.33</li>
-														<li class="fl">60.00</li>
-														<li class="fl">第1期</li>
 													</ul>
 												</li>
 											</ul>
@@ -134,43 +122,20 @@
 							
 						</ul>
 					</div>
-					<div class="hz-jigou b-line">
+					<script id="jigouItem" type="text/x-handlebars-template">
 						<div class="tit"><span>合作机构</span></div>
-						<a href="/jigou/125/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/8dcee4e3-c4fb-49ed-9ba3-e365a1140dc6/original" />
-							<div class="name-text">
-								<p>莫愁花</p>
-								<p class="gray f12">上班族降低了一些门槛</p>
-							</div>
-						</a>
-						<a href="/jigou/115/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/dd8f2714-9a8d-4636-a309-2eecc8a7edb8/original" />
-							<div class="name-text">
-								<p>快花钱包</p>
-								<p class="gray f12">2小时放款</p>
-							</div>
-						</a>
-						<a href="/jigou/32/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/df0b0880-bb04-4074-bc02-16774867d9ea/original" />
-							<div class="name-text">
-								<p>融360</p>
-								<p class="gray f12">最高可贷50万</p>
-							</div>
-						</a>
-						<a href="/jigou/230/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/78ca1a65-7aff-4471-ab18-19446a83c7a8/original" />
-							<div class="name-text">
-								<p>大粒袋</p>
-								<p class="gray f12">有身份证可贷3000元</p>
-							</div>
-						</a>
-						<a href="/jigou/79/" target='_blank'>
-							<img src="https://def-201821.picsh.myqcloud.com/201821/0/0495e9f3-4966-4af3-b32d-707e5100be83/original" />
-							<div class="name-text">
-								<p>安家趣花</p>
-								<p class="gray f12">3小时放款</p>
-							</div>
-						</a>
+						{{#each data}}
+							<a href="./jigou.html?id={{id}}" target='_blank'>
+								<img src="{{picture}}" />
+								<div class="name-text">
+									<p>{{name}}</p>
+									<p class="gray f12">最快3分钟放款</p>
+								</div>
+							</a>
+						{{/each}}
+					</script>
+					<div class="hz-jigou b-line" id="jigouMain">
+						
 					</div>
 				</div>
 			</div>

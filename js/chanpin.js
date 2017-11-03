@@ -56,7 +56,6 @@ $(function() {
 					obj.template = Handlebars.compile(obj.tpl);
 					obj.html = obj.template(obj.data);
 					obj.inHtml.html(obj.html);
-					console.log(obj.data)
 				}
 			}
 		});
@@ -93,7 +92,6 @@ $(function() {
 					obj.template = Handlebars.compile(obj.tpl);
 					obj.html = obj.template(obj);
 					obj.inHtml.html(obj.html);
-					console.log(obj.data)
 				}
 			}
 		});

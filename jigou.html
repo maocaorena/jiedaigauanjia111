@@ -20,13 +20,13 @@
                         <img src="./img/p_portrait.png" />
                     </i>
 					<div class="title">
-						<div class="t">用钱管家</div>
-						<div class="f14">yongqianguanjia.com</div>
+						<div class="t">来钱神器</div>
+							<div class="f14">laiqianshenqi.com</div>
 					</div>
 				</a>
 				<ul class="pc-tabber">
 					<li>
-						<a href="javascript:;"><span>借款攻略</span></a>
+						<a href="gongluehome.html"><span>借款攻略</span></a>
 					</li>
 					<li class="cur">
 						<a href="jiekuan.html"><span>我要借款</span></a>
@@ -46,33 +46,36 @@
 								<img src="{{picture}}" alt='{{name}}' />
 								<div class="tit ml15">
 									<span>{{name}}</span>
-									<br /> 申请快，额度随意 </div>
+									<br />  {{description}}</div>
 							</div>
 						</li>
 					</ul>
 					<div class="infomation-detail jigou_detail">
 						<div class="bd">
 							<div class="tit">机构介绍</div>
-							<p>融族一直忠于为信贷经理，信贷员，中介公司等贷款金融行业从业者大造一个资源 共享的平台<br /></p>
+							<p>{{introduction}}<br/></p>
 							<div class="tit">机构产品</div>
 							<div class="link">
 								<ul>
-									{{#each data}}
-									<a href='/chanpin/238/'>
+									{{#each loanList}}
+									<a href='chanpin.html?id={{id}}' target="_blank">
 										<li>
 											<div class="hd">
-												<img src="https://def-201821.picsh.myqcloud.com/201821/0/5599c317-694f-4938-9f1e-9f82ff800521/original">
+												<img src="{{picture}}">
 												<div class="name-detail">
 													<div class="tit">
-														<span>融族</span> 申请快，额度随意 </div>
-													<div class="rate ml0 mt0">日利率：<span class="red f20">0.02%</span></div>
+														<span>{{name}}</span> {{tags}} </div>
+													<div class="rate ml0 mt0">
+														{{#ifExpress 'stage_type==1'}} 月利率 {{else}} 日利率 {{/ifExpress}}：
+														<span class="red f20">{{rate}}%</span>
+													</div>
 												</div>
 											</div>
 											<div class="bd">
 												<button class="list-btn fr">查看详情</button>
 												<div class="rate">
-													额度范围：<span class="red mr20">5000-10000</span> 借款期限：
-													<span class="red">1年以上</span>
+													额度范围：<span class="red mr20">{{lowest_money}}-{{highest_money}}</span> 借款期限：
+													<span class="red">{{loanPeriod}}</span>
 												</div>
 											</div>
 										</li>
@@ -127,7 +130,6 @@
 								</a>
 							</li>
 							{{/each}}
-							<li style="clear: both;"></li>
 						</script>
 						<div class="tit"><span>相关产品</span></div>
 						<ul id="chanpinIn">
@@ -135,37 +137,28 @@
 						</ul>
 					</div>
 					<div class="search b-line">
+						<script id="searchItem" type="text/x-handlebars-template">
+							{{#each data}}
+								<li data='{{id}}'>{{value}}</li>
+							{{/each}}
+						</script>
 						<div class="tit"><span>贷款产品搜索</span></div>
 						<div class="search-block">
 							<div class="cur" id='JigouSearch_type1'>借款金额</div>
-							<ul>
-								<li data='0'>不限</li>
-								<li data='1'>500-1000</li>
-								<li data='2'>1000-3000</li>
-								<li data='3'>3000-5000</li>
-								<li data='4'>5000-10000</li>
-								<li data='5'>10000以上</li>
+							<ul id="searchMain1">
+								
 							</ul>
 						</div>
 						<div class="search-block">
 							<div class="cur" id='JigouSearch_type2'>借款期限</div>
-							<ul>
-								<li data='0'>不限</li>
-								<li data='1'>15天内</li>
-								<li data='2'>1个月内</li>
-								<li data='3'>1-3个月</li>
-								<li data='4'>3-6个月</li>
-								<li data='5'>6-12个月</li>
-								<li data='6'>1年以上</li>
+							<ul id="searchMain2">
+								
 							</ul>
 						</div>
 						<div class="search-block">
 							<div class="cur" id='JigouSearch_type3'>职业身份</div>
-							<ul>
-								<li data='0'>不限</li>
-								<li data='1'>上班族</li>
-								<li data='2'>个体户</li>
-								<li data='3'>学生</li>
+							<ul id="searchMain3">
+								
 							</ul>
 						</div>
 						<button class="submit-blue" id='JigouSearch'>搜一搜</button>

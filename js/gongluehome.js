@@ -1,14 +1,4 @@
 $(function() {
-	$(window).scroll(function() {
-		var top = $(window).scrollTop();
-		if(top > 150)
-			$('.f-top').fadeIn(100);
-		else
-			$('.f-top').fadeOut(100);
-	});
-	$('.fh-top').click(function() {
-		$(window).scrollTop(0);
-	});
 
 	$('.cur').on('click', "", function() {
 		var that = $(this);
@@ -35,9 +25,9 @@ $(function() {
 		var type1 = $('#JigouSearch_type1').attr('data');
 		var type2 = $('#JigouSearch_type2').attr('data');
 		var type3 = $('#JigouSearch_type3').attr('data');
-		type1 = typeof type1 == 'undefined' ? '' : type1;
-		type2 = typeof type2 == 'undefined' ? '' : type2;
-		type3 = typeof type3 == 'undefined' ? '' : type3;
+		type1 = typeof type1 == 'undefined' ? 0 : type1;
+		type2 = typeof type2 == 'undefined' ? 0 : type2;
+		type3 = typeof type3 == 'undefined' ? 0 : type3;
 		util.goSearch('./jiekuan.html',{
 			f: type1,
 			s: type2,
@@ -45,41 +35,38 @@ $(function() {
 			fu: '',
 		})
 	});
-	
-	//机构详情
+	//顶部选项卡
 	chanpinIn({
-		url: 'institution/getInstitutionById',
+		url: 'loan/getLoanConditionList',
 		params: {
-			id: util.getSearch().id
+			type: '5',
 		},
-		tpl: $("#detailItem").html(),
+		tpl: $("#barItem").html(),
 		data: '',
 		template: '',
 		html: '',
-		inHtml: $('#detailMain'),
-	});
-	//右侧相关产品
+		inHtml: $('#barMain'),
+	},4);
+	//swiper
 	chanpinIn({
-		url: 'loan/getRecommendLoanList',
-		params: {
-		},
-		tpl: $("#chanpinTpl").html(),
+		url: 'article/getRecommendArticleList',
+		params: {},
+		tpl: $("#swiperItem").html(),
 		data: '',
 		template: '',
 		html: '',
-		inHtml: $('#chanpinIn'),
-	},1);
-	//底部机构列表
+		inHtml: $('#swiperMain'),
+	}, 1);
+	//main
 	chanpinIn({
-		url: 'institution/getAllInstitutionList',
-		params: {
-		},
-		tpl: $("#jigouItem").html(),
+		url: 'article/getRecentRecommendArticleList',
+		params: {},
+		tpl: $("#mainItem").html(),
 		data: '',
 		template: '',
 		html: '',
-		inHtml: $('#jigouMain'),
-	},1);
+		inHtml: $('#mainMain'),
+	}, 1);
 	//	 * 搜索条件  借款额度
 	chanpinIn({
 		url: 'loan/getLoanConditionList',
@@ -117,23 +104,56 @@ $(function() {
 		html: '',
 		inHtml: $('#searchMain3'),
 	},2);
-	function chanpinIn(obj,type){
+	//右侧相关产品
+	chanpinIn1({
+		url: 'loan/getRecommendLoanList',
+		params: {
+		},
+		tpl: $("#chanpinTpl").html(),
+		data: '',
+		template: '',
+		html: '',
+		inHtml: $('#chanpinIn'),
+	},1);
+	function chanpinIn(obj, type) {
+		util.getN({
+			url: obj.url,
+			params: obj.params,
+			success: obj.callb || function(res) {
+				if(res.flag) {
+					if(type==4){
+						obj.data = res.data;
+						obj.selected = util.getSearch().barid;
+					}else{
+						obj.data = res.data;
+					};
+					obj.data = res.data;
+					obj.template = Handlebars.compile(obj.tpl);
+					obj.html = obj.template(obj);
+					obj.inHtml.html(obj.html);
+					if(type == 1) {
+						var swiper = new Swiper('.swiper-container', {
+							pagination: '.swiper-pagination',
+							paginationClickable: true,
+							spaceBetween: 30,
+							centeredSlides: true,
+							autoplay: 8000,
+							autoplayDisableOnInteraction: false
+						});
+					}
+				}
+			}
+		});
+	};
+	function chanpinIn1(obj,type){
 		util.getN({
 			url: obj.url,
 			params: obj.params,
 			success: obj.callb || function(res){
 				if(res.flag){
 					obj.template = Handlebars.compile(obj.tpl);
-					if(type==1){
-						obj.data = res.data.splice(0,4);
-						obj.html = obj.template(obj);
-					}else if(type==2){
-						obj.data = res.data;
-						obj.html = obj.template(obj);
-					}else{
-						obj.data = res.data;
-						obj.html = obj.template(obj.data);
-					}
+					obj.data = res.data.splice(0,4);
+					obj.html = obj.template(obj);
 					obj.inHtml.html(obj.html);
 				}
 			}

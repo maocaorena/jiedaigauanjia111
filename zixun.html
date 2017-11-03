@@ -26,7 +26,7 @@
 				</a>
 				<ul class="pc-tabber">
 					<li class="cur">
-						<a href="gongluehome.html"><span>借款攻略</span></a>
+						<a href="javascript:;"><span>借款攻略</span></a>
 					</li>
 					<li>
 						<a href="jiekuan.html"><span>我要借款</span></a>
@@ -37,6 +37,7 @@
 				</ul>
 			</div>
 		</div>
+		<!--头部-->
 		<div class="cms-nav-bg">
 			<div class="cms-nav">
 				<script id="barItem" type="text/x-handlebars-template">
@@ -59,45 +60,32 @@
 				</ul>
 			</div>
 		</div>
+		<script id="swiperItem" type="text/x-handlebars-template">
+			{{#each data}}
+			<div class="swiper-slide item">
+				<a href="zixunDetail.html?id={{id}}" target="_blank">
+					<img src="{{title_photo}}" alt="{{title}}">
+					<span>{{title}}</span>
+				</a>
+			</div>
+			{{/each}}
+		</script>
 		<div class="main jiekuan">
 			<div class="search-result">
 				<div class="cms-main fl">
-					<div class="di-list">
-						<div class="hd">
-							<span class="tit fl" id=""toptit>资讯</span>
-						</div>
-						<script id="listItem" type="text/x-handlebars-template">
-							{{#each data}}
-								{{#ifExpress title_photo}}
-									<li>
-										<a href="zixun.html?id={{id}}" target="_blank">
-		                                    <img src="{{title_photo}}" />
-		                                    <div class="tit">{{title}}</div>
-		                                    <div class="text">{{content}}</div>
-		                                    <div class="date right f12 gray">{{gmt_create}}</div>
-		                                </a>
-									</li>
-								{{else}}
-									<li class="no-img">
-										<a href="zixun.html?id={{id}}" target="_blank">
-											<div class="tit">{{title}}</div>
-											<div class="text">{{content}}</div>
-											<div class="date">{{gmt_create}}</div>
-										</a>
-									</li>
-								 {{/ifExpress}}
-								
-							{{/each}}
-						</script>
-						<ul id="listMain">
-							
-						</ul>
-						<div class="page" id="pagination">
-						</div>
-					</div>
-				</div>
+                    <div class="cms-detail">
+                        <div class="bd">
+                            <div class="tit textTit">
+                                	<span></span>
+                                <div class="date">发表时间：<span></span></div>
+                            </div>
+                            <div class="cms-d-article">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 				<div class="ad fr mt0">
-					<div class="search b-line">	
+					<div class="search b-line">
 						<script id="searchItem" type="text/x-handlebars-template">
 							{{#each data}}
 							<li data='{{id}}'>{{value}}</li>
@@ -129,7 +117,7 @@
 							<script id="chanpinTpl" type="text/x-handlebars-template">
 								{{#each data}}
 								<li>
-									<a href="./chanpin.html?id={{id}}">
+									<a href="./chanpin.html?id={{id}}" target="_blank">
 										<div class="hd">
 											<img src="{{picture}}" alt="{{name}}" />
 											<div class="name-detail ml5">
@@ -196,10 +184,21 @@
 		<script type="text/javascript" src="./lib/jquery.js"></script>
 		<script type="text/javascript" src="./lib/handlebars-v4.0.11.js"></script>
 		<script type="text/javascript" src="./js/handlebars.js"></script>
-		<script type="text/javascript" src="./lib/fenye/jquery.pagination.min.js"></script>
 		<script type="text/javascript" src="./lib/swiper/swiper.min.js"></script>
 		<script type="text/javascript" src="./js/common.js"></script>
-		<script type="text/javascript" src="./js/gonglue.js"></script>
+		<script type="text/javascript" src="./js/zixun.js"></script>
+		<script>
+			$(window).scroll(function() {
+				var top = $(window).scrollTop();
+				if(top > 150)
+					$('.f-top').fadeIn(100);
+				else
+					$('.f-top').fadeOut(100);
+			});
+			$('.fh-top').click(function() {
+				$(window).scrollTop(0);
+			});
+		</script>
 	</body>
 
 </html>

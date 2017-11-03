@@ -40,9 +40,7 @@ $(function() {
 	// 获取列表
 	getList(1)
 
-	/*
-	 * 搜索条件  借款额度
-	 * */
+	//	 * 搜索条件  借款额度
 	modelIn({
 		url: 'loan/getLoanConditionList',
 		params: {
@@ -54,9 +52,7 @@ $(function() {
 		html: '',
 		inHtml: $('#firstSearch')
 	});
-	/*
-	 * 搜索条件  借款期限
-	 * */
+	//	 * 搜索条件  借款期限
 	modelIn({
 		url: 'loan/getLoanConditionList',
 		params: {
@@ -68,9 +64,7 @@ $(function() {
 		html: '',
 		inHtml: $('#secondSearch')
 	});
-	/*
-	 * 搜索条件  职业身份
-	 * */
+	//	 * 搜索条件  职业身份
 	modelIn({
 		url: 'loan/getLoanConditionList',
 		params: {
@@ -83,9 +77,7 @@ $(function() {
 		html: '',
 		inHtml: $('#thirdSearch'),
 	});
-	/*
-	 * 搜索条件  是否新口子
-	 * */
+	//	 * 搜索条件  是否新口子
 	modelIn({
 		url: 'loan/getLoanConditionList',
 		params: {
@@ -111,7 +103,7 @@ $(function() {
 								obj.selected = util.getSearch().f;
 							} else {
 								obj.selected = obj.data[0].id;
-//								search.first = obj.data[0].id;
+								//								search.first = obj.data[0].id;
 							};
 							break;
 						case 2:
@@ -119,7 +111,7 @@ $(function() {
 								obj.selected = util.getSearch().s;
 							} else {
 								obj.selected = obj.data[0].id;
-//								search.second = obj.data[0].id;
+								//								search.second = obj.data[0].id;
 							};
 							break;
 						case 3:
@@ -127,7 +119,7 @@ $(function() {
 								obj.selected = util.getSearch().t;
 							} else {
 								obj.selected = obj.data[0].id;
-//								search.third = obj.data[0].id;
+								//								search.third = obj.data[0].id;
 							};
 							break;
 						case 4:
@@ -135,13 +127,12 @@ $(function() {
 								obj.selected = util.getSearch().fu;
 							} else {
 								obj.selected = obj.data[0].id;
-//								search.fouth = obj.data[0].id;
+								//								search.fouth = obj.data[0].id;
 							};
 							break;
 						default:
 							break;
 					};
-					console.log(search)
 					obj.template = Handlebars.compile(obj.tpl);
 					obj.html = obj.template(obj);
 					obj.inHtml.html(obj.html);
@@ -151,44 +142,43 @@ $(function() {
 	};
 	// 搜索条件点击事件
 	$(window).on("click", '.goto', function() {
-		console.log('www',$(this).attr('thisType'))
-		//		switch ($(this).attr('thisType')){
-		//			case '1':
-		//				util.goSearch('./jiekuan.html',{
-		//					f: $(this).attr('thisId'),
-		//					s: search.second,
-		//					t: search.third,
-		//					fu: search.fouth,
-		//				})
-		//				break;
-		//			case '2':
-		//				util.goSearch('./jiekuan.html',{
-		//					f: search.first,
-		//					s: $(this).attr('thisId'),
-		//					t: search.third,
-		//					fu: search.fouth,
-		//				})
-		//				break;
-		//			case '3':
-		//				util.goSearch('./jiekuan.html',{
-		//					f: search.first,
-		//					s: search.second,
-		//					t: $(this).attr('thisId'),
-		//					fu: search.fouth,
-		//				})
-		//				break;
-		//			case '4':
-		//				util.goSearch('./jiekuan.html',{
-		//					f: search.first,
-		//					s: search.second,
-		//					t: search.third,
-		//					fu: $(this).attr('thisId'),
-		//				})
-		//				break;
-		//			default:
-		//				break;
-		//		};
-		$(this).parents().children('.cur').removeClass("cur");
+		switch($(this).attr('thisType')) {
+			case '1':
+				util.goSearch('./jiekuan.html', {
+					f: $(this).attr('thisId'),
+					s: search.second,
+					t: search.third,
+					fu: search.fouth,
+				})
+				break;
+			case '2':
+				util.goSearch('./jiekuan.html', {
+					f: search.first,
+					s: $(this).attr('thisId'),
+					t: search.third,
+					fu: search.fouth,
+				})
+				break;
+			case '3':
+				util.goSearch('./jiekuan.html', {
+					f: search.first,
+					s: search.second,
+					t: $(this).attr('thisId'),
+					fu: search.fouth,
+				})
+				break;
+			case '4':
+				util.goSearch('./jiekuan.html', {
+					f: search.first,
+					s: search.second,
+					t: search.third,
+					fu: $(this).attr('thisId'),
+				})
+				break;
+			default:
+				break;
+		};
+		/*$(this).parents().children('.cur').removeClass("cur");
 		$(this).addClass('cur');
 		switch($(this).attr('thisType')) {
 			case '1':
@@ -226,14 +216,15 @@ $(function() {
 			default:
 				break;
 		};
-		getList(1);
+		getList(1);*/
 	});
-	function getList(one){
+
+	function getList(one) {
 		listIn({
 			url: 'loan/getAllLoanList',
 			params: {
 				pageIndex: one,
-				pageSize: 20,
+				pageSize: 15,
 				loanAmount: search.first,
 				loanPeriod: search.second,
 				loanType: search.third,
@@ -246,6 +237,7 @@ $(function() {
 			inHtml: $('#listIn')
 		});
 	};
+
 	function listIn(obj) {
 		util.getN({
 			url: obj.url,
@@ -267,25 +259,24 @@ $(function() {
 	//合作机构
 	chanpinIn({
 		url: 'institution/getAllInstitutionList',
-		params: {
-		},
+		params: {},
 		tpl: $("#jigouItem").html(),
 		data: '',
 		template: '',
 		html: '',
 		inHtml: $('#jigouMain'),
 	});
-	function chanpinIn(obj){
+
+	function chanpinIn(obj) {
 		util.getN({
 			url: obj.url,
 			params: obj.params,
-			success: obj.callb || function(res){
-				if(res.flag){
-					obj.data = res.data.splice(0,4);
+			success: obj.callb || function(res) {
+				if(res.flag) {
+					obj.data = res.data.splice(0, 4);
 					obj.template = Handlebars.compile(obj.tpl);
 					obj.html = obj.template(obj);
 					obj.inHtml.html(obj.html);
-					console.log(obj.data)
 				}
 			}
 		});
