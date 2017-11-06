@@ -39,11 +39,23 @@
 		</div>
 		<script id="searchTpl" type="text/x-handlebars-template">
 			{{#each data}} {{#ifExpress1 ../selected id}}
-			<li class="goto cur" thisId="{{id}}" thisType="{{../params.type}}">
+			<li class="goto cur" thisId="{{id}}" thisVal="{{value}}" thisType="{{../params.type}}">
 				<a href="javascript:;">{{value}}</a>
 			</li>
 			{{else}}
-			<li class="goto" thisId="{{id}}" thisType="{{../params.type}}">
+			<li class="goto" thisId="{{id}}" thisVal="{{value}}" thisType="{{../params.type}}">
+				<a href="javascript:;">{{value}}</a>
+			</li>
+			{{/ifExpress1}} {{/each}}
+			<li style="clear: both;"></li>
+		</script>
+		<script id="searchTpl1" type="text/x-handlebars-template">
+			{{#each data}} {{#ifExpress1 ../selected value}}
+			<li class="goto cur" thisId="{{id}}" thisVal="{{value}}" thisType="{{../params.type}}">
+				<a href="javascript:;">{{value}}</a>
+			</li>
+			{{else}}
+			<li class="goto" thisId="{{id}}" thisVal="{{value}}" thisType="{{../params.type}}">
 				<a href="javascript:;">{{value}}</a>
 			</li>
 			{{/ifExpress1}} {{/each}}

@@ -80,11 +80,11 @@
 					<div class="tit">算一算，更放心</div>
 					<div class="calculate">
 						<div class="c-input ml15">
-							<input type="text" placeholder="借多少" id="jie_money" maxlength="5" autocomplete="off" onkeyup="this.value = this.value.replace(/\D/g, '')" />
+							<input type="text" placeholder="借多少" id="jie_money" maxlength="5" autocomplete="off"/>
 							<span>元</span>
 						</div>
 						<div class="c-input">
-							<input type="text" placeholder="借多久" id="jie_day" maxlength="3" autocomplete="off" onkeyup="this.value = this.value.replace(/\D/g, '')" />
+							<input type="text" placeholder="借多久" id="jie_day" maxlength="3" autocomplete="off" />
 							<span>天</span>
 						</div>
 						<div class="clear">
@@ -116,13 +116,12 @@
 										</div>
 									</div>
 									<div class="bd">
-										<span class="fr">期限:15天内</span>
+										<span class="fr">期限:{{loanPeriod}}</span>
 										<span>范围:{{highest_money}}以下</span>
 									</div>
 								</a>
 							</li>
 							{{/each}}
-							<li style="clear: both;"></li>
 						</script>
 						<div class="tit"><span>相关产品</span></div>
 						<ul id="chanpinIn">
@@ -147,11 +146,6 @@
 				</div>
 			</div>
 			<div class="clear"></div>
-		</div>
-		<div class="ld-twocode none">
-			<div class="hd">扫一扫立即借款</div>
-			<img src="/General/qrcodepng/?url=https://www.yongqianguanjia.com/jump/mchanpin/?pararm=czoxMDg6Im5pREphSGpDVlg2Z3BuNWpnTVZEbUNDTmR3RFA5QmRvWTlIbzVvMTRmcHVERzRxL2JFR0hmcFVHOXZSV2xWdndPNmFTUlNCdVMzdG1jUUJxRE1TdW4xeVBrWFpjMnJzTG1qRUpnMmJVVXBzPSI7&qcodeauth=d829cd85ce724ff6157e88475aa3090c" />
-			<div class="pc-close"></div>
 		</div>
 		<!--底部-->
 		<div class="bottom">

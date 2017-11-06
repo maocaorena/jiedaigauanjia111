@@ -48,7 +48,7 @@ function Js(sss) {
 			params: {
 				amount: num1,
 				months: num3,
-				loanRate: num2,
+				loanRate: num2*100,
 				type: 1
 			},
 			success: function(res){
@@ -83,7 +83,7 @@ function Js(sss) {
 			params: {
 				amount: num1,
 				months: num3,
-				loanRate: num2,
+				loanRate: num2*100,
 				type: 2
 			},
 			success: function(res){

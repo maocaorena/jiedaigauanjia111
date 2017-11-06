@@ -46,7 +46,7 @@ $(function() {
 		params: {
 			type: 1
 		},
-		tpl: $("#searchTpl").html(),
+		tpl: $("#searchTpl1").html(),
 		data: '',
 		template: '',
 		html: '',
@@ -58,7 +58,7 @@ $(function() {
 		params: {
 			type: 2
 		},
-		tpl: $("#searchTpl").html(),
+		tpl: $("#searchTpl1").html(),
 		data: '',
 		template: '',
 		html: '',
@@ -102,7 +102,7 @@ $(function() {
 							if(util.getSearch().f) {
 								obj.selected = util.getSearch().f;
 							} else {
-								obj.selected = obj.data[0].id;
+								obj.selected = obj.data[0].value;
 								//								search.first = obj.data[0].id;
 							};
 							break;
@@ -110,7 +110,7 @@ $(function() {
 							if(util.getSearch().s) {
 								obj.selected = util.getSearch().s;
 							} else {
-								obj.selected = obj.data[0].id;
+								obj.selected = obj.data[0].value;
 								//								search.second = obj.data[0].id;
 							};
 							break;
@@ -136,6 +136,7 @@ $(function() {
 					obj.template = Handlebars.compile(obj.tpl);
 					obj.html = obj.template(obj);
 					obj.inHtml.html(obj.html);
+					console.log(obj)
 				}
 			}
 		});
@@ -145,7 +146,7 @@ $(function() {
 		switch($(this).attr('thisType')) {
 			case '1':
 				util.goSearch('./jiekuan.html', {
-					f: $(this).attr('thisId'),
+					f: $(this).attr('thisVal'),
 					s: search.second,
 					t: search.third,
 					fu: search.fouth,
@@ -154,7 +155,7 @@ $(function() {
 			case '2':
 				util.goSearch('./jiekuan.html', {
 					f: search.first,
-					s: $(this).attr('thisId'),
+					s: $(this).attr('thisVal'),
 					t: search.third,
 					fu: search.fouth,
 				})
