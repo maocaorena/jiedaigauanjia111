@@ -6,6 +6,10 @@ var config = {
 	timeout: 1800000,
 };
 var util = {
+	chanpinHtml: 'http://www.51shebaotong.com/h5/product-detail.html',
+	commonUrl: function() {
+		return config.baseUrl;
+	},
 	goSearch: function(url, obj) {
 		var toGo = url;
 		for(var i in obj) {
@@ -36,9 +40,6 @@ var util = {
 			}
 		};
 		return args;
-	},
-	commonUrl: function() {
-		return config.baseUrl;
 	},
 	/**
 	 * 获取数据ajax-get请求

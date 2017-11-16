@@ -108,7 +108,7 @@ $(function() {
 			params: {
 				type: util.getSearch().barid,
 				pageIndex: one,
-				pageSize: 1,
+				pageSize: 15,
 			},
 			tpl: $("#listItem").html(),
 			data: '',

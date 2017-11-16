@@ -1,5 +1,6 @@
 $(function() {
 	var rililv = '';
+	var chanpinId = util.getSearch().id;
 	$(document).on('input', '#jie_money,#jie_day', function() {
 		var jie_money = $('#jie_money').val();
 		var jie_day = $('#jie_day').val();
@@ -43,10 +44,22 @@ $(function() {
 		else
 			$('.f-top').fadeOut(100);
 	});
+	//立即借款
+	new QRCode(document.getElementById('inCode'), util.chanpinHtml+'?id='+chanpinId);
+	$(window).on('click','.showpro',function(){
+		$('.ld-twocode').removeClass('none');
+        $('.mask').removeClass('none');
+	});
+	
+	$('.pc-close').on('click',function(){
+		$('.ld-twocode').addClass('none');
+        $('.mask').addClass('none');
+	});
+	
+	//回顶
 	$('.fh-top').click(function() {
 		$(window).scrollTop(0);
 	});
-	var chanpinId = util.getSearch().id;
 	//详情
 	messageIn({
 		url: 'loan/getLoanDetailsById',

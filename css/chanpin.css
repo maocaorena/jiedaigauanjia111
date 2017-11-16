@@ -536,15 +536,10 @@ body {
 	right: -70px;
 	width: 40px;
 	height: 40px;
-	background: url(../i/pc_close.png)no-repeat center center;
+	background: url(../img/pc_close.png)no-repeat center center;
 	background-size: 40px 40px;
 	cursor: pointer;
 }
-
-.jiekuan .mask {
-	z-index: 9;
-}
-
 
 /*jiekuan_detail end*/
 

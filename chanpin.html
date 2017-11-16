@@ -80,7 +80,7 @@
 					<div class="tit">算一算，更放心</div>
 					<div class="calculate">
 						<div class="c-input ml15">
-							<input type="text" placeholder="借多少" id="jie_money" maxlength="5" autocomplete="off"/>
+							<input type="text" placeholder="借多少" id="jie_money" maxlength="5" autocomplete="off" />
 							<span>元</span>
 						</div>
 						<div class="c-input">
@@ -131,17 +131,17 @@
 					<script id="jigouItem" type="text/x-handlebars-template">
 						<div class="tit"><span>合作机构</span></div>
 						{{#each data}}
-							<a href="./jigou.html?id={{id}}" target='_blank'>
-								<img src="{{picture}}" />
-								<div class="name-text">
-									<p>{{name}}</p>
-									<p class="gray f12">最快3分钟放款</p>
-								</div>
-							</a>
+						<a href="./jigou.html?id={{id}}" target='_blank'>
+							<img src="{{picture}}" />
+							<div class="name-text">
+								<p>{{name}}</p>
+								<p class="gray f12">最快3分钟放款</p>
+							</div>
+						</a>
 						{{/each}}
 					</script>
 					<div class="hz-jigou b-line" id="jigouMain">
-						
+
 					</div>
 				</div>
 			</div>
@@ -175,6 +175,12 @@
 				<div id="popup-captcha"></div>
 			</div>
 		</div>
+		<div class="ld-twocode none">
+			<div class="hd">扫一扫立即借款</div>
+			<div id="inCode"></div>
+			<div class="pc-close"></div>
+		</div>
+		<div class="mask none"></div>
 		<div class="copyright">
 			Copyright©2017 厦门可可家信息技术有限公司
 			<a href="javascript:;">闽ICP备14019518号-3</a>
@@ -185,6 +191,7 @@
 		</div>
 		<script type="text/javascript" src="./lib/jquery.js"></script>
 		<script type="text/javascript" src="./lib/handlebars-v4.0.11.js"></script>
+		<script type="text/javascript" src="./lib/qrcode.min.js"></script>
 		<script type="text/javascript" src="./js/handlebars.js"></script>
 		<script type="text/javascript" src="./js/common.js"></script>
 		<script type="text/javascript" src="./js/chanpin.js"></script>
